@@ -34,7 +34,7 @@ const fs = __importStar(require("fs"));
 const slackShare = (SLACK_TOKEN, SHARE_FILE, SLACK_CHANNEL, FILE_PATH, SLACK_MESSAGE) => __awaiter(void 0, void 0, void 0, function* () {
     const web = new web_api_1.WebClient(SLACK_TOKEN);
     var slackMessage = SLACK_MESSAGE;
-    if (SHARE_FILE === "t") {
+    if (SHARE_FILE) {
         (() => __awaiter(void 0, void 0, void 0, function* () {
             // Post a message to the channel, and await the result.
             // Find more arguments and details of the response: https://api.slack.com/methods/chat.postMessage
@@ -43,8 +43,8 @@ const slackShare = (SLACK_TOKEN, SHARE_FILE, SLACK_CHANNEL, FILE_PATH, SLACK_MES
                 initial_comment: slackMessage,
                 file: fs.createReadStream(FILE_PATH),
             });
-            // The result contains an identifier for the message, `ts`.
-            console.log(`Successfully send message ${result.ts} in conversation ${SLACK_CHANNEL}`);
+            const file = result.file;
+            console.log(`Successfully sent  file: ${file.name} to ${SLACK_CHANNEL} channel with timestamp: ${file.timestamp}`);
         }))();
     }
     else {
@@ -56,7 +56,7 @@ const slackShare = (SLACK_TOKEN, SHARE_FILE, SLACK_CHANNEL, FILE_PATH, SLACK_MES
                 channel: SLACK_CHANNEL,
             });
             // The result contains an identifier for the message, `ts`.
-            console.log(`Successfully send message ${result.ts} in conversation ${SLACK_CHANNEL}`);
+            console.log(`Successfully sent message to ${SLACK_CHANNEL} channel with timestamp: ${result.ts}`);
         }))();
     }
 });
