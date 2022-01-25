@@ -50,7 +50,7 @@ Since slack token is sensitive info, so don't save it in your yaml file instead 
 
 ## Example usage
 ```yml
-uses: FieldAssist/slack-share@v0.1.2
+uses: FieldAssist/slack-share@v0.1.3
 with:
   SLACK_TOKEN: 'Your token'
   SHARE_FILE: true
