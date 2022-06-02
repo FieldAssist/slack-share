@@ -32,7 +32,9 @@ exports.slackShare = void 0;
 const web_api_1 = require("@slack/web-api");
 const fs = __importStar(require("fs"));
 const slackShare = (SLACK_TOKEN, SHARE_FILE, SLACK_CHANNEL, FILE_PATH, SLACK_MESSAGE) => __awaiter(void 0, void 0, void 0, function* () {
-    const web = new web_api_1.WebClient(SLACK_TOKEN);
+    const web = new web_api_1.WebClient('', {
+        headers: { Authorization: `Bearer ${SLACK_TOKEN}` },
+    });
     var slackMessage = SLACK_MESSAGE;
     if (SHARE_FILE) {
         (() => __awaiter(void 0, void 0, void 0, function* () {

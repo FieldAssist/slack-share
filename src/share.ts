@@ -8,7 +8,10 @@ export const slackShare = async (
   FILE_PATH: string,
   SLACK_MESSAGE: string
 ) => {
-  const web = new WebClient(SLACK_TOKEN);
+  const web = new WebClient('', {
+    headers: { Authorization: `Bearer ${SLACK_TOKEN}` },
+  });
+
   var slackMessage = SLACK_MESSAGE;
 
   if (SHARE_FILE) {
@@ -21,7 +24,7 @@ export const slackShare = async (
         file: fs.createReadStream(FILE_PATH),
       });
 
-      const file = result.file as any
+      const file = result.file as any;
       console.log(
         `Successfully sent  file: ${file.name} to ${SLACK_CHANNEL} channel with timestamp: ${file.timestamp}`
       );
