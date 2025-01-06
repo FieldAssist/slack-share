@@ -6,9 +6,9 @@ This action lets you share files and messages to the slack channels.
 ### `SLACK_TOKEN`
 
 **Required** Your slack token. Default `"No Token"`.
-### `SLACK_CHANNEL`
+### `SLACK_CHANNEL_ID`
 
-**Required** Name of channel you want to interact with. Default `"general"`.
+**Required** Channel Id you want to interact with.
 
 ### `SHARE_FILE`
 

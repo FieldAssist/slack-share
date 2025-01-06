@@ -40,15 +40,17 @@ const slackShare = (SLACK_TOKEN, SHARE_FILE, SLACK_CHANNEL, FILE_PATH, SLACK_MES
     var slackMessage = SLACK_MESSAGE;
     if (SHARE_FILE) {
         (() => __awaiter(void 0, void 0, void 0, function* () {
+            var _a, _b, _c;
             try {
                 // Post a message to the channel, and await the result.
                 // Find more arguments and details of the response: https://api.slack.com/methods/chat.postMessage
-                const result = yield web.files.upload({
-                    channels: SLACK_CHANNEL,
+                const result = yield web.filesUploadV2({
+                    channel_id: SLACK_CHANNEL,
                     initial_comment: slackMessage,
                     file: fs.createReadStream(FILE_PATH),
+                    filename: FILE_PATH.split('/').pop()
                 });
-                const file = result.file;
+                const file = (_c = (_b = (_a = result.files) === null || _a === void 0 ? void 0 : _a[0]) === null || _b === void 0 ? void 0 : _b.files) === null || _c === void 0 ? void 0 : _c[0];
                 console.log(`Successfully sent  file: ${file.name} to ${SLACK_CHANNEL} channel with timestamp: ${file.timestamp}`);
             }
             catch (e) {
