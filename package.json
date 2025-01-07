@@ -1,6 +1,6 @@
 {
   "name": "slack-share",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Github action for slack share.",
   "main": "dist/index.js",
   "scripts": {
