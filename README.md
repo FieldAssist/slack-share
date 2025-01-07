@@ -1,4 +1,4 @@
-git# slack-share action
+# slack-share action
 
 This action lets you share files and messages to the slack channels.
 ## Inputs
