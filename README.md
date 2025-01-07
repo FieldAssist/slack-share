@@ -1,4 +1,4 @@
-# slack-share action
+git# slack-share action
 
 This action lets you share files and messages to the slack channels.
 ## Inputs
@@ -54,7 +54,7 @@ uses: FieldAssist/slack-share@v0.1.4
 with:
   SLACK_TOKEN: 'Your token'
   SHARE_FILE: true
-  SLACK_CHANNEL: 'random' # Your slack channel name or id
+  SLACK_CHANNEL: 'random' # Your slack channel id
   FILE_PATH: 'your/file/path'
   SLACK_MESSAGE: 'Your Slack message'
 ```
