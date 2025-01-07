@@ -21,13 +21,15 @@ export const slackShare = async (
       try {
         // Post a message to the channel, and await the result.
         // Find more arguments and details of the response: https://api.slack.com/methods/chat.postMessage
-        const result = await web.files.upload({
-          channels: SLACK_CHANNEL,
+        const result = await web.filesUploadV2({
+          channel_id: SLACK_CHANNEL,
           initial_comment: slackMessage,
           file: fs.createReadStream(FILE_PATH),
-        });
+          filename:FILE_PATH.split('/').pop()
+      });
 
-        const file = result.file as any;
+      const file = result.files?.[0]?.files?.[0] as any;
+
         console.log(
           `Successfully sent  file: ${file.name} to ${SLACK_CHANNEL} channel with timestamp: ${file.timestamp}`
         );

@@ -6,9 +6,9 @@ This action lets you share files and messages to the slack channels.
 ### `SLACK_TOKEN`
 
 **Required** Your slack token. Default `"No Token"`.
-### `SLACK_CHANNEL`
+### `SLACK_CHANNEL_ID`
 
-**Required** Name of channel you want to interact with. Default `"general"`.
+**Required** Channel Id you want to interact with.
 
 ### `SHARE_FILE`
 
@@ -54,7 +54,7 @@ uses: FieldAssist/slack-share@v0.1.4
 with:
   SLACK_TOKEN: 'Your token'
   SHARE_FILE: true
-  SLACK_CHANNEL: 'random' # Your slack channel name or id
+  SLACK_CHANNEL: 'random' # Your slack channel id
   FILE_PATH: 'your/file/path'
   SLACK_MESSAGE: 'Your Slack message'
 ```
